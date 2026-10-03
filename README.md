@@ -1,6 +1,8 @@
-## Concurrent asyncio file transfer over TCP: resumable downloads, SHA-256 checks, atomic uploads
+# Aport
 
-Concurrent, integrity-checked file transfer over TCP in Python: an `asyncio` server and client with resumable downloads, atomic uploads, end-to-end SHA-256 verification, and a path sandbox.
+Concurrent asyncio file transfer over TCP with resumable downloads, SHA-256 checks, and atomic uploads.
+
+**Aport** is a concurrent, integrity-checked file transfer tool over TCP in Python: an `asyncio` server and client with resumable downloads, atomic uploads, end-to-end SHA-256 verification, and a path sandbox.
 
 The server handles many clients on a single event loop. Disk I/O and hashing run in worker threads, so one slow client never stalls the others. Every transfer is verified end to end, interrupted downloads resume where they stopped, uploads become visible only once complete and verified, and requests cannot reach files outside the served directory.
 
@@ -25,7 +27,7 @@ Requires Python 3.10 or later.
 pip install .
 ```
 
-This installs the `filetransfer` command. Serve a directory:
+Aport uses the `filetransfer` command and Python package. Serve a directory:
 
 ```bash
 filetransfer serve --root ./shared --port 9000
